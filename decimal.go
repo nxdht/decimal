@@ -1,6 +1,6 @@
 package decimal
 
-import "github.com/robaho/fixed"
+import "github.com/nxdht/fixed"
 
 var Zero = Decimal{fixed.ZERO}
 
@@ -120,11 +120,10 @@ func Sum(first Decimal, rest ...Decimal) Decimal {
 }
 
 func Avg(first Decimal, rest ...Decimal) Decimal {
-	count := NewFromInt(int64(len(rest)+1))
+	count := NewFromInt(int64(len(rest) + 1))
 	sum := Sum(first, rest...)
 	return sum.Div(count)
 }
-
 
 func (d Decimal) String() string {
 	return d.Fixed.String()
